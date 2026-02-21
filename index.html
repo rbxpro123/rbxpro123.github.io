@@ -2,16 +2,8 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>RBX Empire — Всё про Roblox</title>
-
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-TDSEBDWKQ4"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-TDSEBDWKQ4');
-</script>
 
 <style>
 body {
@@ -22,74 +14,115 @@ body {
 }
 
 header {
-    background:#ff3c3c;
-    padding:20px;
+    background:linear-gradient(135deg,#ff3c3c,#cc0000);
+    padding:30px;
     text-align:center;
-    font-size:28px;
+    font-size:32px;
     font-weight:bold;
+    box-shadow:0 0 25px rgba(255,0,0,0.5);
 }
 
 nav {
     background:#1a1a1a;
-    padding:10px;
+    padding:15px;
     text-align:center;
 }
 
 nav a {
     color:#ff3c3c;
-    margin:0 15px;
+    margin:0 20px;
     text-decoration:none;
+    font-weight:bold;
 }
 
 section {
     max-width:900px;
-    margin:30px auto;
-    padding:20px;
+    margin:40px auto;
+    padding:25px;
     background:#1a1a1a;
-    border-radius:12px;
+    border-radius:15px;
+    box-shadow:0 0 15px rgba(0,0,0,0.6);
 }
 
-h2 { 
-    color:#ffa502; 
+h2 {
+    color:#ffa502;
 }
 
 button {
-    padding:10px 15px;
+    padding:12px 20px;
     background:#ff3c3c;
     border:none;
     color:white;
-    border-radius:6px;
+    border-radius:8px;
     cursor:pointer;
+    font-weight:bold;
+    transition:0.3s;
 }
 
-button:hover { 
-    background:#ff5e5e; 
+button:hover {
+    background:#ff5e5e;
+    transform:scale(1.05);
 }
 
 input {
-    padding:8px;
+    padding:10px;
     margin-top:10px;
+    border-radius:6px;
+    border:none;
 }
 
 .result {
-    margin-top:10px;
+    margin-top:12px;
     color:#2ed573;
     font-weight:bold;
 }
 
+/* YouTube Block */
+.youtube-block {
+    display:flex;
+    justify-content:center;
+}
+
+.yt-card {
+    background:linear-gradient(135deg,#ff3c3c,#990000);
+    padding:35px;
+    border-radius:20px;
+    text-align:center;
+    max-width:650px;
+    box-shadow:0 0 30px rgba(255,0,0,0.6);
+}
+
+.yt-button {
+    display:inline-block;
+    margin-top:20px;
+    background:white;
+    color:#cc0000;
+    padding:14px 30px;
+    border-radius:10px;
+    text-decoration:none;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.yt-button:hover {
+    background:black;
+    color:white;
+    transform:scale(1.05);
+}
+
+/* Counter */
 .counter {
     text-align:center;
-    margin:40px 0;
-    font-size:20px;
+    margin:50px 0;
+    font-size:22px;
     font-weight:bold;
     color:#ffa502;
 }
 
 footer {
     text-align:center;
-    padding:20px;
+    padding:25px;
     background:#111;
-    margin-top:40px;
 }
 </style>
 </head>
@@ -127,33 +160,44 @@ footer {
 
 <section>
 <h2>📢 Подпишись на обновления</h2>
-<p>Напиши ник в Roblox:</p>
-<input type="text" id="nick">
+<input type="text" id="nick" placeholder="Введите ник Roblox">
 <br><br>
 <button onclick="subscribe()">Подписаться</button>
 <div id="subRes" class="result"></div>
 </section>
 
-<!-- Счётчик посещений -->
+<section class="youtube-block">
+  <div class="yt-card">
+    <h2>🔥 RBX Empire на YouTube</h2>
+    <p>
+      Я создал новый проект про Roblox!  
+      Гайды, секреты, заработок и прокачка 🚀  
+      Поддержи канал и стань частью RBX Empire!
+    </p>
+    <a href="https://www.youtube.com/channel/UCtmSg124EGZx4u5l79LS5_Q" target="_blank" class="yt-button">
+      📺 Подписаться на канал
+    </a>
+  </div>
+</section>
+
 <div class="counter">
 👥 Всего посещений сайта: <span id="visitorCounter">Загрузка...</span>
 </div>
 
 <footer>
-© 2026 RBX Empire | Создано начинающим разработчиком 🚀
+© 2026 RBX Empire | Сделано с амбициями 🚀
 </footer>
 
 <script>
 function test() {
   document.getElementById("testRes").innerText =
-    "Да! Ты можешь стать топ-разработчиком 🚀";
+    "Да! У тебя есть потенциал стать топ-разработчиком 🔥";
 }
 
 function calc() {
   let val = document.getElementById("rbx").value;
   if(val === "") {
-    document.getElementById("calcRes").innerText =
-      "Введите число!";
+    document.getElementById("calcRes").innerText = "Введите число!";
     return;
   }
   document.getElementById("calcRes").innerText =
@@ -162,29 +206,27 @@ function calc() {
 
 function secret() {
   document.getElementById("secRes").innerText =
-    "Секрет: Делай свои игры уникальными, а не копируй других 🔥";
+    "Секрет: Создавай уникальные игры и думай как игрок 🎮";
 }
 
 function subscribe() {
   let nick = document.getElementById("nick").value;
   if(nick === "") {
-    document.getElementById("subRes").innerText =
-      "Введите ник!";
+    document.getElementById("subRes").innerText = "Введите ник!";
     return;
   }
   document.getElementById("subRes").innerText =
-    "Ник " + nick + " записан! 🚀";
+    "Ник " + nick + " добавлен 🚀";
 }
 
-/* Реальный счётчик посещений */
-fetch("https://api.countapi.xyz/hit/rbxempire123/visits")
-  .then(response => response.json())
+/* Реальный счётчик */
+fetch("https://api.countapi.xyz/hit/rbxempire-main/visits")
+  .then(res => res.json())
   .then(data => {
     document.getElementById("visitorCounter").innerText = data.value;
   })
   .catch(() => {
-    document.getElementById("visitorCounter").innerText =
-      "Не удалось загрузить";
+    document.getElementById("visitorCounter").innerText = "Ошибка загрузки";
   });
 </script>
 
