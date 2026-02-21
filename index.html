@@ -14,27 +14,13 @@
 </script>
 
 <style>
-body {<div id="visitorCounter" style="text-align:center;margin-top:30px;font-size:18px;">
-Загрузка счётчика...
-</div>
-
-<script>
-fetch("https://api.countapi.xyz/hit/rbxempire123/visits")
-  .then(response => response.json())
-  .then(data => {
-    document.getElementById("visitorCounter").innerText =
-      "👥 Всего посещений сайта: " + data.value;
-  })
-  .catch(() => {
-    document.getElementById("visitorCounter").innerText =
-      "Не удалось загрузить счётчик";
-  });
-</script>
+body {
     margin:0;
-    font-family:Arial;
+    font-family:Arial, sans-serif;
     background:#0f0f0f;
     color:white;
 }
+
 header {
     background:#ff3c3c;
     padding:20px;
@@ -42,16 +28,19 @@ header {
     font-size:28px;
     font-weight:bold;
 }
+
 nav {
     background:#1a1a1a;
     padding:10px;
     text-align:center;
 }
+
 nav a {
     color:#ff3c3c;
     margin:0 15px;
     text-decoration:none;
 }
+
 section {
     max-width:900px;
     margin:30px auto;
@@ -59,7 +48,11 @@ section {
     background:#1a1a1a;
     border-radius:12px;
 }
-h2 { color:#ffa502; }
+
+h2 { 
+    color:#ffa502; 
+}
+
 button {
     padding:10px 15px;
     background:#ff3c3c;
@@ -68,16 +61,30 @@ button {
     border-radius:6px;
     cursor:pointer;
 }
-button:hover { background:#ff5e5e; }
+
+button:hover { 
+    background:#ff5e5e; 
+}
+
 input {
     padding:8px;
     margin-top:10px;
 }
+
 .result {
     margin-top:10px;
     color:#2ed573;
     font-weight:bold;
 }
+
+.counter {
+    text-align:center;
+    margin:40px 0;
+    font-size:20px;
+    font-weight:bold;
+    color:#ffa502;
+}
+
 footer {
     text-align:center;
     padding:20px;
@@ -127,6 +134,11 @@ footer {
 <div id="subRes" class="result"></div>
 </section>
 
+<!-- Счётчик посещений -->
+<div class="counter">
+👥 Всего посещений сайта: <span id="visitorCounter">Загрузка...</span>
+</div>
+
 <footer>
 © 2026 RBX Empire | Создано начинающим разработчиком 🚀
 </footer>
@@ -163,10 +175,18 @@ function subscribe() {
   document.getElementById("subRes").innerText =
     "Ник " + nick + " записан! 🚀";
 }
+
+/* Реальный счётчик посещений */
+fetch("https://api.countapi.xyz/hit/rbxempire123/visits")
+  .then(response => response.json())
+  .then(data => {
+    document.getElementById("visitorCounter").innerText = data.value;
+  })
+  .catch(() => {
+    document.getElementById("visitorCounter").innerText =
+      "Не удалось загрузить";
+  });
 </script>
 
 </body>
 </html>
-
-
-
