@@ -14,7 +14,22 @@
 </script>
 
 <style>
-body {
+body {<div id="visitorCounter" style="text-align:center;margin-top:30px;font-size:18px;">
+Загрузка счётчика...
+</div>
+
+<script>
+fetch("https://api.countapi.xyz/hit/rbxempire123/visits")
+  .then(response => response.json())
+  .then(data => {
+    document.getElementById("visitorCounter").innerText =
+      "👥 Всего посещений сайта: " + data.value;
+  })
+  .catch(() => {
+    document.getElementById("visitorCounter").innerText =
+      "Не удалось загрузить счётчик";
+  });
+</script>
     margin:0;
     font-family:Arial;
     background:#0f0f0f;
@@ -152,5 +167,6 @@ function subscribe() {
 
 </body>
 </html>
+
 
 
