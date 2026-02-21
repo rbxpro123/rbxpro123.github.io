@@ -2,116 +2,137 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<title>RBX Pro — Гайды по Roblox</title>
-
+<title>RBX Empire — Всё про Roblox</title>
 <style>
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #0f0f0f;
-    color: white;
+    margin:0;
+    font-family:Arial;
+    background:#0f0f0f;
+    color:white;
 }
-
 header {
-    background: #111;
-    padding: 20px;
-    text-align: center;
-    font-size: 28px;
-    font-weight: bold;
+    background:#ff3c3c;
+    padding:20px;
+    text-align:center;
+    font-size:28px;
+    font-weight:bold;
 }
-
-.container {
-    max-width: 900px;
-    margin: 40px auto;
-    padding: 20px;
-    background: #1a1a1a;
-    border-radius: 12px;
+nav {
+    background:#1a1a1a;
+    padding:10px;
+    text-align:center;
 }
-
-h1 { color: #ff4757; }
-h2 { color: #ffa502; margin-top: 30px; }
-
+nav a {
+    color:#ff3c3c;
+    margin:0 15px;
+    text-decoration:none;
+}
+section {
+    max-width:900px;
+    margin:30px auto;
+    padding:20px;
+    background:#1a1a1a;
+    border-radius:12px;
+}
+h2 { color:#ffa502; }
 button {
-    padding: 10px 15px;
-    margin-top: 10px;
-    background: #ff4757;
-    border: none;
-    color: white;
-    border-radius: 6px;
-    cursor: pointer;
+    padding:10px 15px;
+    background:#ff3c3c;
+    border:none;
+    color:white;
+    border-radius:6px;
+    cursor:pointer;
 }
-
-button:hover {
-    background: #ff6b81;
-}
-
+button:hover { background:#ff5e5e; }
 input {
-    padding: 8px;
-    margin-top: 10px;
-    width: 100px;
+    padding:8px;
+    margin-top:10px;
 }
-
 .result {
-    margin-top: 10px;
-    font-weight: bold;
-    color: #2ed573;
+    margin-top:10px;
+    color:#2ed573;
+    font-weight:bold;
 }
-
 footer {
-    text-align: center;
-    padding: 20px;
-    background: #111;
-    margin-top: 40px;
+    text-align:center;
+    padding:20px;
+    background:#111;
+    margin-top:40px;
 }
 </style>
 </head>
-
 <body>
 
-<header>
-🎮 RBX Pro — Лучшие гайды по Roblox
-</header>
+<header>🔥 RBX Empire — Портал по Roblox</header>
 
-<div class="container">
+<nav>
+<a href="#">Главная</a>
+<a href="#">Гайды</a>
+<a href="#">Секреты</a>
+</nav>
 
-<h1>Как стать популярным в Roblox</h1>
-<p>Создавай уникальные игры, делай крутые иконки и продвигай их через TikTok и YouTube.</p>
+<section>
+<h2>🎯 Тест: Ты будущий топ-разработчик?</h2>
+<button onclick="test()">Пройти тест</button>
+<div id="testRes" class="result"></div>
+</section>
 
-<h2>🎯 Тест: Станешь ли ты популярным?</h2>
-<p>Ты часто обновляешь свою игру?</p>
-<button onclick="showResult()">Да, постоянно!</button>
-<div id="testResult" class="result"></div>
-
+<section>
 <h2>💰 Калькулятор Robux</h2>
 <p>Сколько Robux ты получаешь в день?</p>
-<input type="number" id="robuxInput" placeholder="Например 10">
-<br>
-<button onclick="calculateRobux()">Посчитать за 30 дней</button>
-<div id="calcResult" class="result"></div>
+<input type="number" id="rbx">
+<br><br>
+<button onclick="calc()">Посчитать</button>
+<div id="calcRes" class="result"></div>
+</section>
 
+<section>
 <h2>🎁 Секрет недели</h2>
-<p>Добавь в свою игру ежедневную награду — игроки будут возвращаться каждый день!</p>
+<button onclick="secret()">Получить секрет</button>
+<div id="secRes" class="result"></div>
+</section>
 
-</div>
+<section>
+<h2>📢 Подпишись на обновления</h2>
+<p>Напиши ник в Roblox:</p>
+<input type="text" id="nick">
+<br><br>
+<button onclick="subscribe()">Подписаться</button>
+<div id="subRes" class="result"></div>
+</section>
 
 <footer>
-© 2026 RBX Pro | Сайт создан начинающим разработчиком 🚀
+© 2026 RBX Empire | Создано начинающим разработчиком 🚀
 </footer>
 
 <script>
-function showResult() {
-    document.getElementById("testResult").innerText =
-    "🔥 Отлично! У тебя есть шанс стать популярным разработчиком!";
+function test(){
+document.getElementById("testRes").innerText =
+"🔥 У тебя есть потенциал! Главное — обновлять игры и не сдаваться.";
 }
 
-function calculateRobux() {
-    let value = document.getElementById("robuxInput").value;
-    let result = value * 30;
-    document.getElementById("calcResult").innerText =
-    "💎 За 30 дней ты заработаешь примерно " + result + " Robux!";
+function calc(){
+let val = document.getElementById("rbx").value;
+let total = val * 30;
+document.getElementById("calcRes").innerText =
+"💎 За месяц это примерно " + total + " Robux!";
 }
+
+function secret(){
+document.getElementById("secRes").innerText =
+"💡 Игры с ежедневной наградой удерживают игроков в 3 раза дольше.";
+}
+
+function subscribe(){
+let name = document.getElementById("nick").value;
+document.getElementById("subRes").innerText =
+"✅ " + name + ", ты подписан! Скоро будут новые фишки.";
+}
+
+let online = Math.floor(Math.random()*25)+10;
+document.body.insertAdjacentHTML("beforeend",
+"<div style='position:fixed;bottom:10px;right:10px;background:#ff3c3c;padding:10px;border-radius:8px;'>🔥 Онлайн: "+online+" чел.</div>");
 </script>
 
 </body>
 </html>
-   
