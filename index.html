@@ -181,7 +181,8 @@ footer {
 </section>
 
 <div class="counter">
-👥 Всего посещений сайта: <span id="visitorCounter">Загрузка...</span>
+👥 Всего посещений сайта: 
+<img src="https://visitorbadge.io/api/visitors?path=rbxempire123&label=&countColor=%23ffa502" />
 </div>
 
 <footer>
@@ -218,19 +219,7 @@ function subscribe() {
   document.getElementById("subRes").innerText =
     "Ник " + nick + " добавлен 🚀";
 }
-
-/* Реальный счётчик */
-<script>
-fetch("https://api.visitorbadge.io/api/visitors?path=rbxempire123&countColor=%23ffa502")
-  .then(res => res.json())
-  .then(data => {
-    document.getElementById("visitorCounter").innerText = data.total;
-  })
-  .catch(() => {
-    document.getElementById("visitorCounter").innerText = "0";
-  });
 </script>
 
 </body>
 </html>
-
